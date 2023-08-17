@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .visit-button {
+        background-color: #3498db;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 10px 20px;
+        transition: all .3s;
+    }
+
+    .visit-button:hover {
+        background-color: #2980b9;
+    }
+
+    .visit-button i {
+        margin-right: 5px;
+    }
+</style>
+<body>
+    <section id="visit-counter">
+        <button class="visit-button">
+            <i class="fas fa-eye"></i> Odwiedzin strony: <span id="visit-count">0</span>
+        </button>
+    </section>
+    <script>
+        const visitButton = document.querySelector('.visit-button');
+        const visitCountElement = document.getElementById('visit-count');
+
+        let biezacawartoscLicznika = parseInt(localStorage.getItem('visitCount')) || 0;
+
+        biezacawartoscLicznika++;
+
+        localStorage.setItem('visitCount', biezacawartoscLicznika);
+
+        visitCountElement.textContent = biezacawartoscLicznika;
+    </script>
+</body>
+</html>
